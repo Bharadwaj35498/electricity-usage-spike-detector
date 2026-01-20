@@ -1,0 +1,7 @@
+DATA_PATH = "data/usage_data.csv"
+OUTPUT_PATH = "outputs/final_results.csv"
+
+ROLLING_WINDOW = 7
+ZSCORE_THRESHOLD = 3
+ISOLATION_CONTAMINATION = 0.05
+RANDOM_STATE = 42
