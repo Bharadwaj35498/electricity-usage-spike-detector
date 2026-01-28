@@ -15,7 +15,7 @@ def main():
     df = detect_anomalies(df)
 
     df.to_csv(OUTPUT_PATH, index=False)
-    print("✅ Final results saved.")
+    print("Final results saved.")
 
     plot_results(df)
 
