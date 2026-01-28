@@ -14,7 +14,7 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("⚡ Electricity Usage Spike Detection Dashboard")
+st.title("Electricity Usage Spike Detection Dashboard")
 
 st.markdown("""
 This dashboard detects **abnormal spikes in electricity usage** using:
@@ -25,7 +25,7 @@ This dashboard detects **abnormal spikes in electricity usage** using:
 # --------------------
 # Sidebar controls
 # --------------------
-st.sidebar.header("⚙️ Settings")
+st.sidebar.header("Settings")
 
 z_threshold = st.sidebar.slider(
     "Z-Score Threshold",
@@ -60,7 +60,7 @@ df = detect_anomalies(df)
 # --------------------
 # Plot
 # --------------------
-st.subheader("📈 Electricity Usage Over Time")
+st.subheader("Electricity Usage Over Time")
 
 st.line_chart(
     df.set_index("date")[["usage"]]
@@ -69,14 +69,14 @@ st.line_chart(
 
 # Overlay anomalies
 if show_zscore:
-    st.subheader("🔴 Z-Score Detected Spikes")
+    st.subheader("Z-Score Detected Spikes")
     st.dataframe(
         df[df["zscore_spike"]][["date", "usage", "z_score"]]
         .sort_values("usage", ascending=False)
     )
 
 if show_iforest:
-    st.subheader("🟠 Isolation Forest Anomalies")
+    st.subheader("Isolation Forest Anomalies")
     st.dataframe(
         df[df["if_anomaly"] == 1][["date", "usage"]]
         .sort_values("usage", ascending=False)
@@ -85,7 +85,7 @@ if show_iforest:
 # --------------------
 # Summary metrics
 # --------------------
-st.subheader("📊 Summary")
+st.subheader("Summary")
 
 col1, col2, col3 = st.columns(3)
 
